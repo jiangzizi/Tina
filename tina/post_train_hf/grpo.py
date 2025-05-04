@@ -136,6 +136,8 @@ def main():
         attn_implementation=model_args.attn_implementation,
         use_cache=False if training_args.gradient_checkpointing else True)
 
+    print(f"model lora_target modules {model_args.lora_target_modules}")
+
     if model_args.use_peft:
         logger.info(f"\n Using PEFT with {model_args.lora_r} rank, {model_args.lora_alpha} alpha, {model_args.lora_dropout} dropout.")
         peft_config = LoraConfig(
